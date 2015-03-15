@@ -4,8 +4,8 @@
  * All database connection variables
  */
 
-define('DB_USER', "root"); // db user
-define('DB_PASSWORD', ""); // db password (mention your db password here)
+define('DB_USER', "adminPaQ8nQa"); // db user
+define('DB_PASSWORD', "kWA_f3T8W5tP"); // db password (mention your db password here)
 define('DB_DATABASE', "uis"); // database name
-define('DB_SERVER', "localhost"); // db server
+define('DB_SERVER', "127.3.169.2"); // db server
 ?>
