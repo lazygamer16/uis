@@ -14,7 +14,15 @@ include('nahead.php');
             <?php include ('template.php'); ?>
             <div class="bottom">
               <div style="float: left; width: 30%;" id="one"><?php echo $nhead; ?></div>
-              <div style="float: left; width: 30%;" id="two"><?php echo $ahead; ?></div>
+              <div style="float: left; width: 30%;" id="two">
+                <?php
+                if ($result2->num_rows > 0) {
+                    while($row2 = $result2->fetch_assoc()) {
+                    echo "<center><h3>Announcement</h3><img src='img/".$row2['image'].".jpg' height='200' width='275'></center><h3><a href='list_detail.php?id=".$row2['id']."&name=Announcement'>".$row2['title'].
+                    "</a></h3>".$row2['description']."<br><br><a href='list.php?id=Announcement'>View All Announcements</a>";
+                    }
+                }
+                ?></div>
               <div style="float: left; width: 30%;" id="three">
                     <center><h3>3rd Year Degree Module</h3><img src="img/itblogo.png" height='180' width='175'></center>
                     <ol>
