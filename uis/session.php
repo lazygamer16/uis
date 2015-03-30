@@ -1,6 +1,6 @@
 <?php
     // Establishing Connection with Server by passing server_name, user_id and password as a parameter
-    $connection = mysql_connect("localhost", "root", "");
+    $connection = mysql_connect("127.3.169.2", "adminPaQ8nQa", "kWA_f3T8W5tP");
 
     // Selecting Database
     $db = mysql_select_db("uis", $connection);
