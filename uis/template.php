@@ -6,8 +6,8 @@
         <div id='main'>
             <nav id='tab'>
                 <a href='home.php'>Home</a> |
-                <a href='list.php?id=News'>News and Events</a> |
-                <a href='list.php?id=Announcement'>Announcement</a> |
+                <a href='list.php?id=news'>News and Events</a> |
+                <a href='list.php?id=announcement'>Announcement</a> |
                 <a href='module.php'>Module</a> |
                 <a href='marks.php'>Student Marks</a>
             </nav>

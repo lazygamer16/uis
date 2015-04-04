@@ -9,8 +9,6 @@
     // SQL query to fetch news and announcement.
     
     $result = $conn->query($sql);
-    
-    
 ?>
 
 <!DOCTYPE html>
