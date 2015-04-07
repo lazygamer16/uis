@@ -2,13 +2,13 @@
     include('session.php');
     include('conn.php');
     
-    // SQL query to fetch news and announcement.
+    // SQL query to pending student 3rd year modules and 3rd year module list
     $sql = "SELECT * from student 
             Inner Join module
                 ON student.student_module=module.module_id
             where student.module_confirm=1";
     
-    $sql2 = "Select * from module where course !='Third Year'";    
+    $sql2 = "Select * from module where course ='Third Year'";    
     
     $result = $conn->query($sql);
     $result2 = $conn->query($sql2);
@@ -29,7 +29,7 @@
                 <div style="float: left; width: 65%;" id="two">
                     <center><h3>Module</h3>
                     <a href='module_add.php'>Add New Module</a>
-                    <h4>Pending Modules</h4>
+                    <h4>Pending 3rd Year Modules</h4>
                     <?php
                         if ($result->num_rows > 0) {
                             echo "<table border='1' style='width:80%'>
@@ -48,7 +48,7 @@
                         echo "There are no pending modules.";
                         }    
                     ?>
-                    <h4>View Approved/Dissaproved Module Request</h4>
+                    <h4>View 3rd Year Module Details</h4>
                     <?php
                         if ($result2->num_rows > 0) {
                             while($row2 = $result2->fetch_assoc()) {         
@@ -59,7 +59,7 @@
                     </center>
                 </div>
                 <div style="float: left; width: 10%;" class="four"></div>
-            </div>
+            </div>           
         </div>
         <footer>2015 All Rights Reserved.</footer> 
     </body>

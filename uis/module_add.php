@@ -1,8 +1,8 @@
 <?php    
     include('session.php');
     include('conn.php');
+    include('madd.php');
     
-    $error='';
 ?>
  
 <!DOCTYPE html>
@@ -20,11 +20,24 @@
                     <h3>Add Course</h3>
                     <div id="addmodule">        
                         <form action="" method="post">
-                            Course Name:<input name="cname" type="text">
-                            Course:<input name="course" type="text">
-                            Semester:<input name="semester" type="password">
+                            Module Name:<input name="name" type="text"><br>
+                            Course:<select name="course">
+                                      <option value="Bachelor of Science in Internet Computing">Bachelor of Science in Internet Computing</option>
+                                      <option value="Third Year">Third Year</option>
+                                    </select><br>
+                            Module Info:<input name="info" type="text"><br>
+                            Semester:<select name="sem">
+                                      <option value="1">One</option>
+                                      <option value="2">Two</option>
+                                      <option value="3">Three</option>
+                                      <option value="4">Four</option>
+                                      <option value="5">Five</option>
+                                      <option value="6">Six</option>
+                                      <option value="7">Seven</option>
+                                      <option value="8">Eight</option>
+                                    </select><br>
                             <input name="addmodule" type="submit" value="Add Module">
-                            <span><?php echo $error; ?></span>
+                            <span><?php echo $error1; ?></span>
                         </form>          
                     </div>
                 </div>

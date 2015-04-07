@@ -9,12 +9,17 @@
         
     } else {
         echo "Error updating record: " . $conn->error;
-    }  
+        }  
     }
     
     $id = $_GET['id'];
     
-    $abc = "Select * from module where module_id=".$id."";    
+    $abc = "Select * from 3module
+            Inner Join module
+                On 3module.module_id=module.module_id
+            Inner Join staff
+                on staff.staff_id=3module.staff_id
+            where 3module.module_id=".$id."";
     
     $sql = "SELECT * from student 
             Inner Join module
@@ -50,7 +55,8 @@
                         if ($res->num_rows > 0) {
                             while($row3 = $res->fetch_assoc()) {                              
                                 echo "<center><h3>".$row3['module_name']."</h3></center>Module Info: ".$row3['module_info']."</h4>
-                                        <h4>Day of Lecture:</h4><h4>Pre-requisite:</h4><h4>Lecturer:</h4><h4>Office Location:</h4>";
+                                        <h4>Day of Lecture: ".$row3['dayoflect']."</h4><h4>Pre-requisite: ".$row3['prereq']."</h4><h4>Lecturer: ".$row3['staff_name'].
+                                        "</h4><h4>Office Location: ".$row3['staff_room']."</h4>";
                             }
                         } 
                     ?>
