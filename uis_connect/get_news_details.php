@@ -20,7 +20,7 @@ if (isset($_GET["nid"])) {
     $nid = $_GET['nid'];
 
     // get a news from news table
-    $result = mysql_query("SELECT *FROM products WHERE id = $nid");
+    $result = mysql_query("SELECT *FROM news WHERE id = $nid");
 
     if (!empty($result)) {
         // check for empty result
