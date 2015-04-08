@@ -20,7 +20,7 @@ if (isset($_GET["nid"])) {
     $nid = $_GET['nid'];
 
     // get a news from news table
-    $result = mysql_query("SELECT * FROM news WHERE id = $nid");
+    $result = mysql_query("SELECT *FROM news");
 
     if (!empty($result)) {
         // check for empty result
@@ -28,21 +28,21 @@ if (isset($_GET["nid"])) {
 
             $result = mysql_fetch_array($result);
 
-            $news = array();
-            $news["nid"] = $result["id"];
-            $news["title"] = $result["title"];
+            $new = array();
+            $new["nid"] = $result["id"];
+            $new["title"] = $result["title"];
             $result["description"]=utf8_encode($result["description"]);			
-            $news["description"] = $result["description"];
-            $news["image"] = $result["image"];
-            $news["date_create"] = $result["date_create"];
-            $news["date_updated"] = $result["date_updated"];
+            $new["description"] = $result["description"];
+            $new["image"] = $result["image"];
+            $new["date_create"] = $result["date_create"];
+            $new["date_updated"] = $result["date_updated"];
             // success
             $response["success"] = 1;
 
             // user node
             $response["news"] = array();
 
-            array_push($response["news"], $news);
+            array_push($response["news"], $new);
 
             // echoing JSON response
             echo json_encode($response);
