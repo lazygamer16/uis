@@ -16,7 +16,7 @@ require_once __DIR__ . '/db_connect.php';
 $db = new DB_CONNECT();
 
 // check for post data
-if (isset($_GET["nid"])) {
+if (true) {
     $nid = $_GET['nid'];
 
     // get a news from news table
