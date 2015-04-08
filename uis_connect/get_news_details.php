@@ -31,7 +31,7 @@ if (isset($_GET["nid"])) {
             $news = array();
             $news["nid"] = $result["id"];
             $news["title"] = $result["title"];
-			$result["description"]=utf8_encode($result["description"]);
+            $result["description"]=utf8_encode($result["description"]);			
             $news["description"] = $result["description"];
             $news["image"] = $result["image"];
             $news["date_create"] = $result["date_create"];
