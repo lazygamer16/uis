@@ -20,7 +20,7 @@ if (isset($_GET["nid"])) {
     $nid = $_GET['nid'];
 
     // get a news from news table
-    $result = mysql_query("SELECT *FROM news");
+    $result = mysql_query("SELECT *FROM products WHERE id = $nid");
 
     if (!empty($result)) {
         // check for empty result
@@ -28,14 +28,14 @@ if (isset($_GET["nid"])) {
 
             $result = mysql_fetch_array($result);
 
-            $new = array();
-            $new["nid"] = $result["id"];
-            $new["title"] = $result["title"];
-            $result["description"]=utf8_encode($result["description"]);			
-            $new["description"] = $result["description"];
-            $new["image"] = $result["image"];
-            $new["date_create"] = $result["date_create"];
-            $new["date_updated"] = $result["date_updated"];
+			$new = array();
+			$new["nid"] = $result["id"];
+			$new["title"] = $result["title"];
+			$result["description"]=utf8_encode($result["description"]);
+			$new["description"] = $result["description"];
+			$new["date_create"] = $result["date_create"];
+			$new["date_updated"] = $result["date_updated"];
+			$new["image"] = $result["image"];
             // success
             $response["success"] = 1;
 
