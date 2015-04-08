@@ -16,11 +16,11 @@ require_once __DIR__ . '/db_connect.php';
 $db = new DB_CONNECT();
 
 // check for post data
-if (true) {
+if (isset($_GET["nid"])) {
     $nid = $_GET['nid'];
 
     // get a news from news table
-    $result = mysql_query("SELECT * FROM news WHERE id = 1");
+    $result = mysql_query("SELECT * FROM news WHERE nid = $nid");
 
     if (!empty($result)) {
         // check for empty result
