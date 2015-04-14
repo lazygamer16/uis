@@ -32,7 +32,7 @@ if (isset($_GET["nid"])) {
 			$new["nid"] = $result["id"];
 			$new["title"] = $result["title"];
 			$result["description"]=utf8_encode($result["description"]);
-			$new["description"] = $result["description"];
+			$new["description"] = strip_tags($result["description"]);
 			$new["date_create"] = $result["date_create"];
 			$new["date_updated"] = $result["date_updated"];
 			$new["image"] = $result["image"];
