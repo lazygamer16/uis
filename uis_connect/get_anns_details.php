@@ -19,7 +19,7 @@ if (isset($_GET["aid"])) {
     $nid = $_GET['aid'];
 
     // get an announcement from news table
-    $result = mysql_query("SELECT *FROM announcements WHERE id = $aid");
+    $result = mysql_query("SELECT *FROM announcement WHERE id = $aid");
 
     if (!empty($result)) {
         // check for empty result
