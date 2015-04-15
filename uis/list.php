@@ -4,7 +4,7 @@
     
     $head = $_GET['id'];
     
-    $sql = "Select id, title, LEFT(description, 275) as descr, image, date_updated from ".$head." ORDER by date_updated";
+    $sql = "Select id, title, LEFT(description, 275) as descr, image, date_updated from ".$head." ORDER by date_updated DESC";
     
     // SQL query to fetch news and announcement.
     
@@ -40,7 +40,6 @@
                 <div style="float: left; width: 10%;" class="four"></div>
             </div>
         </div>
-        <footer>2015 All Rights Reserved.</footer> 
     </body>
     
     

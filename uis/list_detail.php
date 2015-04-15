@@ -5,11 +5,14 @@
     $head = $_GET['id'];
     $table = $_GET['name'];
       
-    $sql = "Select id, title, description, image, date_updated from ".$table." where id=".$head."";
+    $sql = "Select * from ".$table." where id=".$head."";
+	$sql2 = "Select * from ".$table." where id=".$head."";
     
+	
     // SQL query to fetch news and announcement.
     
     $result = $conn->query($sql);
+	$result2 = $conn->query($sql2);
     
     
 ?>
@@ -27,7 +30,7 @@
                 <div style="float: left; width: 10%;" class="four"></div>
                 <div style="float: left; width: 65%;" id="two">                               
                     <?php
-                        if ($result->num_rows > 0) {
+                        if ($result->num_rows > 0 && $table=='news') {
                             while($row = $result->fetch_assoc()) {
                            
                             echo "<center><h3>".$row['title'];
@@ -36,7 +39,19 @@
                             echo "</h5>".$row['description'];
                             
                             }
-                        }    
+                        }
+						else {
+							while($row2 = $result2->fetch_assoc()) {
+                           
+                            echo "<center><h3>".$row2['title'];
+                            echo "</h3><img src='img/".$row2['image'].".jpg' width='650'></center>";
+							echo "<h5>Date Updated: ".$row2['date_updated'];
+							echo "<h5>Time: ".$row2['time'];
+							echo "<h5>Venue: ".$row2['venue'];
+                            echo "<h5>Link: <a href='".$row2['link']."' target='_blank'>More Information</a>";
+                            echo "</h5>".$row2['description'];
+							}
+						}	
                     ?>
                 <h5>2015 All Rights Reserved.</h5>                        
                 </div>

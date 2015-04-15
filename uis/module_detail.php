@@ -19,7 +19,7 @@
                 On 3module.module_id=module.module_id
             Inner Join staff
                 on staff.staff_id=3module.staff_id
-            where 3module.module_id=".$id."";
+            where 3module.module_id=".$id." Limit 1";
     
     $sql = "SELECT * from student 
             Inner Join module
