@@ -16,7 +16,7 @@ $db = new DB_CONNECT();
 
 // check for post data
 if (isset($_GET["aid"])) {
-    $nid = $_GET['aid'];
+    $aid = $_GET['aid'];
 
     // get an announcement from news table
     $result = mysql_query("SELECT *FROM announcement WHERE id = $aid");
