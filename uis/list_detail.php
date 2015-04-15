@@ -32,7 +32,7 @@
                            
                             echo "<center><h3>".$row['title'];
                             echo "</h3><img src='img/".$row['image'].".jpg' width='650'></center>";
-                            echo "<h5>Date Updated:".$row['date_updated'];
+                            echo "<h5>Date Updated: ".$row['date_updated'];
                             echo "</h5>".$row['description'];
                             
                             }
