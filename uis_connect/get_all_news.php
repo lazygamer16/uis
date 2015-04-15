@@ -28,11 +28,7 @@ if (mysql_num_rows($result) > 0) {
         $new = array();
         $new["nid"] = $row["id"];
         $new["title"] = $row["title"];
-        $row["description"]=utf8_encode($row["description"]);
-        $new["description"] = $row["description"];
-        $new["date_create"] = $row["date_create"];
         $new["date_updated"] = $row["date_updated"];
-        $new["image"] = $row["image"];
 
         // push single product into final response array
         array_push($response["news"], $new);
