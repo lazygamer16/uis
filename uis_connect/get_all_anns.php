@@ -28,6 +28,7 @@ if (mysql_num_rows($result) > 0) {
         $ann["aid"] = $row["id"];
         $ann["title"] = $row["title"];
         $ann["date_updated"] = $row["date_updated"];
+		$ann["image"] = $row["image"];
 
         // push single product into final response array
         array_push($response["announcements"], $ann);
