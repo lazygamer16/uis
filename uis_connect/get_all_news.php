@@ -29,6 +29,7 @@ if (mysql_num_rows($result) > 0) {
         $new["nid"] = $row["id"];
         $new["title"] = $row["title"];
         $new["date_updated"] = $row["date_updated"];
+		$new["image"] = $row["image"];
 
         // push single product into final response array
         array_push($response["news"], $new);
