@@ -14,7 +14,7 @@ require_once __DIR__ . '/db_connect.php';
 $db = new DB_CONNECT();
 
 // get all announcements from announcements table
-$result = mysql_query("SELECT *FROM announcement") or die(mysql_error());
+$result = mysql_query("SELECT *FROM announcement order by date_updated desc") or die(mysql_error());
 
 // check for empty result
 if (mysql_num_rows($result) > 0) {
