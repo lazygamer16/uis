@@ -38,7 +38,7 @@ if (isset($_GET["mid"])) {
 			$mod["info"] = $result["module_info"];
 			$mod["name"] = $result["module_name"];
 			$mod["course"] = $result["course"];
-			$mod["dol"] = $result["dateoflect"];
+			$mod["dol"] = $result["dayoflect"];
 			$mod["lecturer"] = $result["staff_name"];
 			$mod["office"] = $result["staff_room"];
             // success
