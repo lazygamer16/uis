@@ -14,7 +14,7 @@ require_once __DIR__ . '/db_connect.php';
 $db = new DB_CONNECT();
 
 // get a student marks from a student table
-$result = mysql_query("SELECT module.module_name, marks.mark
+$result = mysql_query("SELECT module.module_name, marks.mark, mark.mark_id
 						FROM marks
 							INNER JOIN module
 								ON marks.module_id=module.module_id
@@ -31,7 +31,8 @@ if (mysql_num_rows($result) > 0) {
     while ($row = mysql_fetch_array($result)) {
         // temp user array
         $mark = array();
-        $mark["mname"] = $row["module_name"];
+		$mark["mkid"]= $row["mark_id"];
+        $mark["name"] = $row["module_name"];
         $mark["mark"] = $row["mark"];
       
         // push single product into final response array
