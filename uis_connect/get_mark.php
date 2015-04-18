@@ -20,7 +20,7 @@ $result = mysql_query("SELECT module.module_name, marks.mark,student
 								ON marks.module_id=module.module_id
 							INNER JOIN student
 								ON student.student_id=marks.student_id
-							where student,student_id=1") or die(mysql_error());
+							where student.student_id=1") or die(mysql_error());
 
 // check for empty result
 if (mysql_num_rows($result) > 0) {
