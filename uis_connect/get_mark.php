@@ -14,7 +14,7 @@ require_once __DIR__ . '/db_connect.php';
 $db = new DB_CONNECT();
 
 // get a student marks from a student table
-$result = mysql_query("SELECT module.module_name, marks.mark,student
+$result = mysql_query("SELECT module.module_name, marks.mark
 						FROM marks
 							INNER JOIN module
 								ON marks.module_id=module.module_id
