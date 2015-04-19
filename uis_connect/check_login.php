@@ -9,9 +9,9 @@
  
   /* check for POST request */ 
 
-if (isset($_GET['tag']) && $_GET['tag'] != '') {
+if (isset($_POST['tag']) && $_POST['tag'] != '') {
     // get tag
-    $tag = $_GET['tag'];
+    $tag = $_POST['tag'];
  
     // include db handler
     require_once '/db_functions.php';
