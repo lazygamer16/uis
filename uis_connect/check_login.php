@@ -9,7 +9,7 @@
  
   /* check for POST request */ 
 
-if (true) {
+if (isset($_POST['tag']) && $_POST['tag'] != ''){
     // get tag
     $tag = $_POST['tag'];
  
