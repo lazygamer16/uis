@@ -27,7 +27,7 @@ if (mysql_num_rows($result) > 0) {
         $mod = array();
         $mod["mid"] = $row["module_id"];
         $mod["name"] = $row["module_name"];
-		$mod["info"] = $result["module_info"];
+		$mod["info"] = $row["module_info"];
 
         // push single product into final response array
         array_push($response["modules"], $mod);
