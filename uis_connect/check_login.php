@@ -1,13 +1,4 @@
 <?php
- 
-/**
- * File to handle all API requests
- * Accepts GET and POST
- * 
- * Each request will be identified by TAG
- * Response will be JSON data
- 
-  /* check for POST request */ 
 
 if (isset($_POST['tag']) && $_POST['tag'] != ''){
     // get tag
@@ -31,7 +22,7 @@ if (isset($_POST['tag']) && $_POST['tag'] != ''){
         if ($user != false) {
             // user found
             $response["error"] = FALSE;
-            $response["uid"] = $user["unique_id"];
+            $response["uid"] = $user["user_id"];
 			$response["sid"] = $user["student_id"];
             $response["user"]["name"] = $user["student_name"];
             $response["user"]["email"] = $user["user_name"];
@@ -54,4 +45,5 @@ if (isset($_POST['tag']) && $_POST['tag'] != ''){
     $response["error_msg"] = "Required parameter 'tag' is missing!";
     echo json_encode($response);
 }
+
 ?>

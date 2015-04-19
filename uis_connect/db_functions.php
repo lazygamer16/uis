@@ -30,7 +30,7 @@ class DB_Functions {
         $no_of_rows = mysql_num_rows($result);
         if ($no_of_rows > 0) {
             $result = mysql_fetch_array($result);
-            $db_password = $result['user_passs'];
+            $db_password = $result['user_pass'];
             // check for password equality
             if ($db_password == $password) {
                 // user authentication details are correct
@@ -41,7 +41,5 @@ class DB_Functions {
             return false;
         }
     }
-
 }
- 
 ?>
