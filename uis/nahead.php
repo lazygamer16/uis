@@ -3,7 +3,7 @@
     
     // SQL query to fetch news and announcement.
     $sql = "Select id, title, LEFT(description, 275) as descr, image, date_updated from news ORDER by date_updated DESC Limit 1";
-    $sql2 = "Select * from announcement ORDER by date_updated DESC Limit 1";
+    $sql2 = "Select id, title, LEFT(description, 275) as descr, image, date_updated from announcement ORDER by date_updated DESC Limit 1";
     $sql3 = "SELECT * FROM `module` WHERE course='Third Year' Limit 3";
     
     $result = $conn->query($sql);
