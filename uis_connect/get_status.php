@@ -31,10 +31,12 @@ if (isset($_GET["sid"])) {
             $result = mysql_fetch_array($result);
 
             $stat = array();
-            $stat["sid"] = $result["sid"];
+            $stat["sid"] = $result["student_id"];
             $stat["mname"] = $result["module_name"];
             $stat["sname"] = $result["student_name"];
             $stat["cname"] = $result["student_course"];
+			$stat["confirm"] = $result["module_confirm"];
+			
             // success
             $response["success"] = 1;
 
