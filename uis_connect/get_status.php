@@ -22,7 +22,7 @@ if (isset($_GET["sid"])) {
     $result = mysql_query("SELECT *
 	FROM student
 		INNER JOIN module
-		ON student.student_module=module.module_id WHERE id = $sid");
+		ON student.student_module=module.module_id WHERE student.student_id = $sid");
 
     if (!empty($result)) {
         // check for empty result
