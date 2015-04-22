@@ -27,9 +27,10 @@
             <div class="bottom">      
                 <div style="float: left; width: 10%;" class="four"></div>
                 <div style="float: left; width: 65%;" id="two">
-                    <center><h3>Module</h3>
-                    <a href='module_add.php'>Add New Module</a>
-                    <h4>Pending 3rd Year Modules</h4>
+                    <center><h3>ExperiencePLUS Module</h3>
+                    <a href='module_add.php'>Add New ExperiencePLUS Module</a> |
+					<a href='module_assign.php'>Assign ExperiencePLUS Module</a>
+                    <h4>Pending ExperiencePLUS Module Modules</h4>
                     <?php
                         if ($result->num_rows > 0) {
                             echo "<table border='1' style='width:80%'>
@@ -48,7 +49,7 @@
                         echo "There are no pending modules.";
                         }    
                     ?>
-                    <h4>View 3rd Year Module Details</h4>
+                    <h4>View ExperiencePLUS Module Details</h4>
                     <?php
                         if ($result2->num_rows > 0) {
                             while($row2 = $result2->fetch_assoc()) {         

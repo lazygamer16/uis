@@ -17,25 +17,13 @@
             <div>      
                 <div style="float: left; width: 10%;" class="four"></div>
                 <div style="float: left; width: 65%;" id="two">
-                    <h3>Add Course</h3>
+                    <h3>Add ExperiencePLUS Module</h3>
                     <div id="addmodule">        
                         <form action="" method="post">
-                            Module Name:<input name="name" type="text"><br>
-                            Course:<select name="course">
-                                      <option value="Bachelor of Science in Internet Computing">Bachelor of Science in Internet Computing</option>
-                                      <option value="Third Year">Third Year</option>
-                                    </select><br>
-                            Module Info:<input name="info" type="text"><br>
-                            Semester:<select name="sem">
-                                      <option value="1">One</option>
-                                      <option value="2">Two</option>
-                                      <option value="3">Three</option>
-                                      <option value="4">Four</option>
-                                      <option value="5">Five</option>
-                                      <option value="6">Six</option>
-                                      <option value="7">Seven</option>
-                                      <option value="8">Eight</option>
-                                    </select><br>
+                            Module Name:<input name="name" type="text" placeholder="Name of Module"><br>
+                            Course:<input name="course" type="text" value="Third Year" readonly>
+                            Module Info:<input name="info" type="text" placeholder="More information"><br>
+                            Semester:<input name="sem" type="text" value="5" readonly><br>
                             <input name="addmodule" type="submit" value="Add Module">
                             <span><?php echo $error1; ?></span>
                         </form>          
