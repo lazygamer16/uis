@@ -6,7 +6,7 @@
     $sql3 = "UPDATE student SET module_confirm = ".$_GET['no']." where student_id =".$_GET['stu']."";
     
         if ($conn->query($sql3) === TRUE) {
-        
+			
     } else {
         echo "Error updating record: " . $conn->error;
         }  
@@ -64,9 +64,10 @@
                     <?php
                         if ($result->num_rows > 0) {
                             echo "<table border='1' style='width:80%'>
-                                <tr><td>Name</td><td>Course</td><td>Enroll Date</td></tr>";
+                                <tr><td>Name</td><td>Course</td><td>Enroll Date</td><td>Revert</td></tr>";
                             while($row = $result->fetch_assoc()) {                           
-                                echo "<tr><td>".$row['student_name']."</td><td>".$row['student_course']."</td><td>".$row['enroll_date']."</td></tr>";
+                                echo "<tr><td>".$row['student_name']."</td><td>".$row['student_course']."</td><td>".$row['enroll_date']."</td>
+										<td><a href='module.php?sid=".$row['student_id']."'>Revert</a></td></tr>";								
                             }
                         }
                         else {
@@ -78,13 +79,14 @@
                     <?php
                         if ($result2->num_rows > 0) {
                             echo "<table border='1' style='width:80%'>
-                                <tr><td>Name</td><td>Course</td><td>Enroll Date</td></tr>";
+                                <tr><td>Name</td><td>Course</td><td>Enroll Date</td><td>Revert</td></tr>";
                             while($row2 = $result2->fetch_assoc()) {                           
-                                echo "<tr><td>".$row2['student_name']."</td><td>".$row2['student_course']."</td><td>".$row2['enroll_date']."</td></tr>";
+                                echo "<tr><td>".$row2['student_name']."</td><td>".$row2['student_course']."</td><td>".$row2['enroll_date']."</td>
+										<td><a href='module.php?sid=".$row2['student_id']."'>Revert</a></td></tr>";
                             }
                         }
                         else {
-                            echo "There are no students approved for this course.";
+                            echo "There are no students disapproved for this course.";
                         }
                             echo "</table>";
                     ?>

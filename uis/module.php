@@ -12,7 +12,15 @@
     
     $result = $conn->query($sql);
     $result2 = $conn->query($sql2);
-  
+	
+	if (isset ($_GET['sid'])) {
+	$sql3 = "Update student SET module_confirm='1' where student_id =".$_GET['sid']."";
+		if ($conn->query($sql3) === TRUE) {
+		
+		} else {
+			echo "Error updating record: " . $conn->error;
+			}  
+		}	
 ?>
 
 <!DOCTYPE html>
