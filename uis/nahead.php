@@ -20,7 +20,7 @@
     if ($result2->num_rows > 0) {
         while($row2 = $result2->fetch_assoc()) {
             $ahead =  "<center><h3>Announcement</h3><img src='img/".$row2['image'].".jpg' height='200' width='275'></center><h3><a href='list_detail.php?id=".$row2['id']."&name=Announcement'>".$row2['title'].
-                        "</a></h3>".$row2['description']."<br><br><a href='list.php?id=announcement'>View All Announcements</a>";
+                        "</a></h3>".$row2['descr']."<br><br><a href='list.php?id=announcement'>View All Announcements</a>";
             }
     }
 
