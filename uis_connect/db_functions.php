@@ -46,10 +46,6 @@ class DB_Functions {
         
 		$result = mysql_query("UPDATE user SET login = '1' WHERE user_name='$email'") or die(mysql_error());
 
-        else {
-            // user not found
-            return false;
         }
-    }
 }
 ?>
