@@ -9,9 +9,9 @@
 $response = array();
  
 // check for required fields
-if (isset($_POST['uid'])) {
+if (isset($_POST['sid'])) {
  
-	$uid = $_POST['uid'];
+	$sid = $_POST['sid'];
  
     // include db connect class
     require_once __DIR__ . '/db_connect.php';
@@ -20,8 +20,12 @@ if (isset($_POST['uid'])) {
     $db = new DB_CONNECT();
  
     // mysql update row with matched pid
-    $result = mysql_query("UPDATE user SET login = '0' WHERE user_id = $uid");
- 
+    $result = mysql_query("UPDATE user SET login = '0' 
+							From user T1
+							Inner Join student T2
+								On T2.student_id = T1.student_id
+							WHERE student.student_id = $sid");
+
     // check if row inserted or not
     if ($result) {
         // successfully updated
