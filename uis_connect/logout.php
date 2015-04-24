@@ -20,7 +20,7 @@ if (isset($_POST['sid'])) {
     $db = new DB_CONNECT();
  
     // mysql update row with matched pid
-    $result = mysql_query("UPDATE user SET login = '0' 
+    $result = mysql_query("UPDATE user SET user.login = '0' 
 							From user T1
 							Inner Join student T2
 								On T2.student_id = T1.student_id
