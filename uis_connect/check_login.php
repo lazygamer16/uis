@@ -36,7 +36,7 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
 			$response["sid"] = $user["student_id"];
             $response["user"]["name"] = $user["student_name"];
             $response["user"]["email"] = $user["user_name"];
-			$user = $db->logout($email);
+			//$user = $db->logout($email);
             echo json_encode($response);
         } else {
             // user not found
