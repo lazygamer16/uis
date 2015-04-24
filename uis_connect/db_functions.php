@@ -41,5 +41,15 @@ class DB_Functions {
             return false;
         }
     }
+	
+	public function logout($email) {
+        
+		$result = mysql_query("UPDATE user SET login = '1' WHERE user_name='$email'") or die(mysql_error());
+
+        } else {
+            // user not found
+            return false;
+        }
+    }
 }
 ?>
