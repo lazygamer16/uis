@@ -35,7 +35,7 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
 			$response["error_msg"] = "Your module has been approved. You cannot book it again.";
 			echo json_encode($response);
 		}	
-		else if ($confirm == 3 || $confirm == 0 ||){
+		else if ($confirm == 3 || $confirm == 0){
 			$query = mysql_query("Update student SET module_confirm ='1' and student_module ='$mid' where student_id='$sid'");
 			
 			if ($query){
