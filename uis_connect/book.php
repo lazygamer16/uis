@@ -36,13 +36,15 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
 			echo json_encode($response);
 		}	
 		else if ($confirm == 3 || $confirm == 0){
-			$query = mysql_query("Update student SET module_confirm ='1' and student_module ='$mid' where student_id='$sid'");
+			$query = mysql_query("Update student SET module_confirm ='1',student_module ='$mid' where student_id='$sid'");
 			
 			if ($query){
 			$response["error_msg"] = "Module Booked.";
+			echo json_encode($response);
 			}
 			else{
 			$response["error_msg"] = "Problem in running query.";
+			echo json_encode($response);
 			}
         } else {
             // user not found
@@ -76,9 +78,11 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
 			
 			if ($query3){
 			$response["error_msg"] = "Module Un Booked.";
+			echo json_encode($response);
 			}
 			else{
 			$response["error_msg"] = "Problem in unbooking.";
+			echo json_encode($response);
 			}
 		}
 		else {
