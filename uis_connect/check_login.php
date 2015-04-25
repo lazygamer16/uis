@@ -30,6 +30,7 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
         // check for user
         $user = $db->getUserByEmailAndPassword($email, $password);
         if ($user != false) {
+			$result3 = mysql_query("UPDATE user SET login = '1' WHERE user_name = '$email' and user_pass='$password'");
             // user found
             $response["error"] = FALSE;
             $response["uid"] = $user["user_id"];
