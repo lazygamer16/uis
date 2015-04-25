@@ -35,6 +35,7 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
             $response["error"] = FALSE;
             $response["uid"] = $user["user_id"];
 			$response["sid"] = $user["student_id"];
+			$response["confirm"] = $user["module_confirm"];
             $response["user"]["name"] = $user["student_name"];
             $response["user"]["email"] = $user["user_name"];
             echo json_encode($response);
