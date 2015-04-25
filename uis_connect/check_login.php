@@ -30,6 +30,12 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
         // check for user
         $user = $db->getUserByEmailAndPassword($email, $password);
         if ($user != false) {
+			if ($user["user_id"] == 1){
+				$response["error"] = TRUE;
+				$response["error_msg"] = "User has already logged in.";
+				echo json_encode($response);
+			}
+			else{
 			$result3 = mysql_query("UPDATE user SET login = '1' WHERE user_name = '$email' and user_pass='$password'");
             // user found
             $response["error"] = FALSE;
@@ -39,11 +45,12 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
             $response["user"]["name"] = $user["student_name"];
             $response["user"]["email"] = $user["user_name"];
             echo json_encode($response);
+			}
         } else {
             // user not found
             // echo json with error = 1
             $response["error"] = TRUE;
-            $response["error_msg"] = "Incorrect email or password!";
+            $response["error_msg"] = "Incorrect email or password! or User has already logged in";
             echo json_encode($response);
         }
     } else {
