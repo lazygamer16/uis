@@ -20,12 +20,12 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
 		
 		$query1 = mysql_query("Select * from student where student_id='$sid' and student_module='$con'");
 		
-		if (mysql_num_rows($query) > 0){
+		if (mysql_num_rows($query1) > 0){
 			$response["error"] = TRUE;
 			$response["error_msg"] = "You already booked a module. Please unbook it first if you wish to book this module.";
 			echo json_encode($response);
 		}	
-		else if ($query == true && isset($mid) && isset ($sid)){
+		else if ($query1 == true && isset($mid) && isset ($sid)){
 			$query = mysql_query("Update student SET module_confirm ='1' and student_module ='$mid' where student_id='$sid'");
 			
 			if ($query){
