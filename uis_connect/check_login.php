@@ -30,7 +30,7 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
         // check for user
         $user = $db->getUserByEmailAndPassword($email, $password);
         if ($user != false) {
-			if ($user["user_id"] == 1){
+			if ($user["login"] == 1){
 				$response["error"] = TRUE;
 				$response["error_msg"] = "User has already logged in.";
 				echo json_encode($response);
