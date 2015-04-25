@@ -51,7 +51,7 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
             $response["error_msg"] = "Incorrect or missing module id.";
             echo json_encode($response);
         }
-    } else if (($tag == 'unbook')){
+    } else if ($tag == 'unbook'){
 			
 		if  ($confirm == 3){
 			$response["error"] = TRUE;
