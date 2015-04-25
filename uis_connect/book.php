@@ -13,7 +13,7 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
 	
 	$query1 = mysql_query("Select * from student where student_id='$sid'");
 		
-		while ($row = mysql_fetch_array($query)) {
+		while ($row = mysql_fetch_array($query1)) {
 			$module = $row['student_module'];
 			$confirm = $row['module_confirm'];	
 			}
