@@ -1,31 +1,41 @@
 <?php
+
 if (isset($_POST['tag']) && $_POST['tag'] != '') {
     // get tag
     $tag = $_POST['tag'];
+	$sid = $_POST['sid'];
 	
     // include db connect class
     require_once __DIR__ . '/db_connect.php';
  
     // connecting to db
     $db = new DB_CONNECT();
- 
+	
+	$query1 = mysql_query("Select * from student where student_id='$sid'");
+		
+		while ($row = mysql_fetch_array($query)) {
+			$module = $row['student_module'];
+			$confirm = $row['module_confirm'];	
+			}
+			
     // response Array
     $response = array("tag" => $tag, "error" => FALSE);
  
     // check for tag type
     if ($tag == 'book') {
-        
-        $con = $_POST['confirm'];
-		$sid = $_POST['sid'];
-		
-		$query1 = mysql_query("Select * from student where student_id='$sid' and student_module='$con'");
-		
-		if (mysql_num_rows($query1) > 0){
+		$mid = $_POST['mid'];
+        	
+		if ($confirm == 1){
 			$response["error"] = TRUE;
 			$response["error_msg"] = "You already booked a module. Please unbook it first if you wish to book this module.";
 			echo json_encode($response);
+		}
+		else if ($confirm == 2){
+			$response["error"] = TRUE;
+			$response["error_msg"] = "Your module has been approved. You cant book it again.";
+			echo json_encode($response);
 		}	
-		else if ($query1 == true && isset($mid) && isset ($sid)){
+		else if ($confirm == 3 || $confirm == 1){
 			$query = mysql_query("Update student SET module_confirm ='1' and student_module ='$mid' where student_id='$sid'");
 			
 			if ($query){
