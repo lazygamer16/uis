@@ -32,10 +32,10 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
 		}
 		else if ($confirm == 2){
 			$response["error"] = TRUE;
-			$response["error_msg"] = "Your module has been approved. You cant book it again.";
+			$response["error_msg"] = "Your module has been approved. You cannot book it again.";
 			echo json_encode($response);
 		}	
-		else if ($confirm == 3 || $confirm == 1){
+		else if ($confirm == 3 || $confirm == 0 ||){
 			$query = mysql_query("Update student SET module_confirm ='1' and student_module ='$mid' where student_id='$sid'");
 			
 			if ($query){
@@ -48,23 +48,30 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
             // user not found
             // echo json with error = 1
             $response["error"] = TRUE;
-            $response["error_msg"] = "Incorrect or missing moduleid and confirm.";
+            $response["error_msg"] = "Incorrect or missing module id.";
             echo json_encode($response);
         }
     } else if (($tag == 'unbook')){
-		
-		$con = $_POST['confirm'];
-		$sid = $_POST['sid'];
-		
-		$query2 = mysql_query("Select * from student where student_id='$sid' and module_confirm != 1");
-		
-		if  (mysql_num_rows($query2)>0){
+			
+		if  ($confirm == 3){
 			$response["error"] = TRUE;
-			$response["error_msg"] = "Your module is rejected or confirmed or never booked.";
+			$response["error_msg"] = "Your module is rejected therefore it cannot be unbooked.";
 			echo json_encode($response);
 		}
 		
-		else{
+		else if  ($confirm == 2){
+			$response["error"] = TRUE;
+			$response["error_msg"] = "Your module is approved. Please consult the admin if you wish to change it.";
+			echo json_encode($response);
+		}
+		
+		else if  ($confirm == 0){
+			$response["error"] = TRUE;
+			$response["error_msg"] = "Your did not book any modules.";
+			echo json_encode($response);
+		}
+		
+		else if ($confirm == 1){
 			$query3 = mysql_query("Update student SET module_confirm ='0',student_module='0' where student_id='$sid'");
 			
 			if ($query3){
@@ -73,7 +80,14 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
 			else{
 			$response["error_msg"] = "Problem in unbooking.";
 			}
-		}	
+		}
+		else {
+            // user not found
+            // echo json with error = 1
+            $response["error"] = TRUE;
+            $response["error_msg"] = "Incorrect or missing module id(2).";
+            echo json_encode($response);
+        }	
     }
 	else{
 		// user failed to store
