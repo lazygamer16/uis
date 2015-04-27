@@ -17,7 +17,7 @@ if (isset($_GET["mkid"])) {
     $mkid = $_GET['mkid'];
 
 	// get a student marks from a student table
-	$result = mysql_query("SELECT module.module_name, marks.mark, marks.marks_id
+	$result = mysql_query("SELECT module.module_name, marks.mark, marks.marks_id, student.student_name, student.student_course,student.enroll_date
 							FROM marks
 								INNER JOIN module
 									ON marks.module_id=module.module_id
