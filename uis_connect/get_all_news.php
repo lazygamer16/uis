@@ -26,9 +26,11 @@ if (mysql_num_rows($result) > 0) {
     while ($row = mysql_fetch_array($result)) {
         // temp user array
         $new = array();
+		$myinput= $row['date_updated']; 
+		$sqldate=date('d-m-Y',strtotime($myinput));	
         $new["nid"] = $row["id"];
         $new["title"] = $row["title"];
-        $new["date_updated"] = $row["date_updated"];
+        $new["date_updated"] = $sqldate;
 		$new["image"] = $row["image"];
 
         // push single product into final response array

@@ -32,20 +32,22 @@
                     <?php
                         if ($result->num_rows > 0 && $table=='news') {
                             while($row = $result->fetch_assoc()) {
-                           
+							$myinput= $row['date_updated']; 
+							$sqldate=date('d-m-Y',strtotime($myinput));
                             echo "<center><h3>".$row['title'];
                             echo "</h3><img src='img/".$row['image'].".jpg' width='650'></center>";
-                            echo "<h5>Date Updated: ".$row['date_updated'];
+                            echo "<h5>Date Updated: ".$sqldate;
                             echo "</h5>".$row['description'];
                             
                             }
                         }
 						else {
 							while($row2 = $result2->fetch_assoc()) {
-                           
+							$myinput= $row2['date_updated']; 
+							$sqldate=date('d-m-Y',strtotime($myinput));
                             echo "<center><h3>".$row2['title'];
                             echo "</h3><img src='img/".$row2['image'].".jpg' width='650'></center>";
-							echo "<h5>Date Updated: ".$row2['date_updated'];
+							echo "<h5>Date Updated: ".$sqldate;
 							echo "<h5>Time: ".$row2['time'];
 							echo "<h5>Venue: ".$row2['venue'];
                             echo "<h5>Link: <a href='".$row2['link']."' target='_blank'>More Information</a>";

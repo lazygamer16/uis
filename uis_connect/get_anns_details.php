@@ -28,6 +28,8 @@ if (isset($_GET["aid"])) {
             $result = mysql_fetch_array($result);
 
 			$ann = array();
+			$myinput= $result['date_updated']; 
+			$sqldate=date('d-m-Y',strtotime($myinput));	
 			$ann["nid"] = $result["id"];
 			$ann["title"] = $result["title"];
 			$ann["time"] = $result["time"];
@@ -35,7 +37,7 @@ if (isset($_GET["aid"])) {
 			$result["description"]=utf8_encode($result["description"]);
 			$ann["description"] = strip_tags($result["description"]);
 			$ann["link"] = $result["link"];
-			$ann["date_updated"] = $result["date_updated"];
+			$ann["date_updated"] = $sqldate;
 			$ann["image"] = $result["image"];
             // success
             $response["success"] = 1;

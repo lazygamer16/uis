@@ -29,12 +29,14 @@ if (isset($_GET["nid"])) {
             $result = mysql_fetch_array($result);
 
 			$new = array();
+			$myinput= $result['date_updated']; 
+			$sqldate=date('d-m-Y',strtotime($myinput));	
 			$new["nid"] = $result["id"];
 			$new["title"] = $result["title"];
 			$result["description"]=utf8_encode($result["description"]);
 			$new["description"] = strip_tags($result["description"]);
 			$new["date_create"] = $result["date_create"];
-			$new["date_updated"] = $result["date_updated"];
+			$new["date_updated"] = $sqldate;
 			$new["image"] = $result["image"];
             // success
             $response["success"] = 1;

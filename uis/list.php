@@ -26,10 +26,12 @@
                     <?php
                         echo "<center><h3>Latest ".$head."</h3></center>";
                         if ($result->num_rows > 0) {
-                            while($row = $result->fetch_assoc()) {
+                            while($row = $result->fetch_assoc()) {  
+							$myinput= $row['date_updated']; 
+							$sqldate=date('d-m-Y',strtotime($myinput));
                             echo "<table><tr><td>";
                             echo "<img src='img/".$row['image'].".jpg' height='180' width='300'></td><td>";
-                            echo "<strong>".$row['title']."</strong><h5>Date Updated: ".$row['date_updated']."</h5>".$row['descr']."...<br><a href='list_detail.php?id="
+                            echo "<strong>".$row['title']."</strong><h5>Date Updated: ".$sqldate."</h5>".$row['descr']."...<br><a href='list_detail.php?id="
                                     .$row['id']."&name=".$head."'>View Full Story</a>";      
                             echo "</td></tr><td height=20px;></td></table>";
                             }
