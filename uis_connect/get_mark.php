@@ -39,6 +39,9 @@ if (isset($_GET["mkid"])) {
 				$mark["mkid"]= $row["marks_id"];
 				$mark["name"] = $row["module_name"];
 				$mark["mark"] = $row["mark"];
+				$mark["date"] = $row["enroll_date"];
+				$mark["course"] = $row["student_course"];
+				$mark["sname"] = $row["student_name"];
 			  
 				// push single product into final response array
 				array_push($response["marks"], $mark);
