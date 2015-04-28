@@ -17,7 +17,7 @@ if (isset($_GET["mkid"])) {
     $mkid = $_GET['mkid'];
 
 	// get a student marks from a student table
-	$result = mysql_query("SELECT module.module_name, marks.mark, marks.marks_id, student.student_name, student.student_course,student.enroll_date
+	$result = mysql_query("SELECT module.module_name, marks.mark, marks.marks_id, module.semester
 							FROM marks
 								INNER JOIN module
 									ON marks.module_id=module.module_id
@@ -39,9 +39,7 @@ if (isset($_GET["mkid"])) {
 				$mark["mkid"]= $row["marks_id"];
 				$mark["name"] = $row["module_name"];
 				$mark["mark"] = $row["mark"];
-				$mark["date"] = $row["enroll_date"];
-				$mark["course"] = $row["student_course"];
-				$mark["sname"] = $row["student_name"];
+				$mark["sem"] = $row["semester"];
 			  
 				// push single product into final response array
 				array_push($response["marks"], $mark);
