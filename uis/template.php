@@ -9,7 +9,8 @@
                 <a href='list.php?id=news'>News</a> |
                 <a href='list.php?id=announcement'>Announcement</a> |
                 <a href='module.php'>Module</a> |
-                <a href='marks.php'>Student Marks</a>
+                <a href='marks.php'>Student Marks</a> |
+				<a href='about.php'>About</a>
             </nav>
             <div id='status'>
                 <b id='welcome'>Welcome : <i>"
